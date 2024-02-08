@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>SynTech-X: Wheel Of Fortune</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  <link rel="icon" href="data:image/x-icon;," type="image/x-icon">
+  <link rel="stylesheet" href="./style.css"/>
+
+  <script src="https://cdn.jsdelivr.net/npm/spin-wheel@4.3.1/dist/spin-wheel-iife.js"></script>
+  <script>
+    window.onload = () => {
+        const props = {
+            itemLabelRadius: 0.93,
+            itemLabelRadiusMax: 0.35,
+            itemLabelRotation: 180,
+            itemLabelAlign: "left",
+            itemLabelColors: ['#fff'],
+            itemLabelBaselineOffset: -0.07,
+            itemLabelFontSizeMax: 55,
+            itemBackgroundColors: ['#ffc93c', '#66bfbf', '#a2d5f2', '#515070', '#43658b', '#ed6663', '#d54062' ],
+            rotationSpeedMax: 500,
+            rotationResistance: -80,
+            lineWidth: 1,
+            lineColor: '#fff',
+            items: [
+                {
+                    label: '50',
+                },
+                {
+                    label: '100',
+                },
+                {
+                    label: '150',
+                },
+                {
+                    label: '200',
+                },
+                {
+                    label: '250',
+                },
+                {
+                    label: '300',
+                },
+                {
+                    label: '350',
+                },
+                {
+                    label: '400',
+                },
+                {
+                    label: '450',
+                },
+                {
+                    label: '500',
+                },
+            ],
+            radius: 0.65,
+            overlayImage: './logo.png',
+            onRest: (e) => {
+                // alert(`You've won a ${window.wheel.items[e.currentIndex].label} course!`);
+                btma.innerText = "Spin: " + window.wheel.items[e.currentIndex].label
+            },
+            onSpin: (e) => {
+                btma.innerText = "Spinning"
+            }
+        };
+        
+        const container = document.querySelector('.wheel-wrapper');
+        window.btma = document.querySelector('.btma');
+        window.wheel = new spinWheel.Wheel(container, props);
+    }
+  </script>
+</head>
+
+<body>
+    <div class="title-container"><div class="title">{SynTech-X '23 - '24}</div></div>
+    <div class="pointer-container">
+        <img src="./arrow.png" width="48" height="48" alt="Pointer">
+    </div>
+  <div class="wheel-wrapper"></div>
+  <div class="btm-container"><div class="btm">Wheel Of Fortune</div><div class="btma">...</div></div>
+</body>
+</html>
